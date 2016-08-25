@@ -14,7 +14,13 @@ module ForestLiana
     end
 
     def self.find_model_from_table_name(table_name)
-      ActiveRecord::Base.subclasses.find {|s| s.table_name == table_name}
+      ActiveRecord::Base.subclasses.find do |subclass|
+        if subclass.abstract_class?
+          subclass.table_name = subclass.name.tableize
+        end
+
+        subclass.table_name == table_name
+      end
     end
 
     def self.tables_names
