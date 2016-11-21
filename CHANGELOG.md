@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Smart field - Allow to override the read_only option of a Smart Field.
 
 ## RELEASE 1.4.4 - 2016-11-18
 ### Changed
